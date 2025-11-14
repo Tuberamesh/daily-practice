@@ -1,3 +1,5 @@
+//this is  leetcode  50. Pow(x, n) problem solution
+
 class Solution {
     public double myPow(double x, int n) {
         if (n == 0) return 1;
