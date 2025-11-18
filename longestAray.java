@@ -25,6 +25,9 @@ class Solution {
     }
 }
 
+// Problem: Longest Consecutive Sequence 128
+// Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence
+
 
 class Solution {
     public int longestConsecutive(int[] nums) {
