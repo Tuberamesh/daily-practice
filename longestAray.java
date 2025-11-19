@@ -29,7 +29,7 @@ class Solution {
 // Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence
 
 
-class Solution {
+class Solution1{
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
 
