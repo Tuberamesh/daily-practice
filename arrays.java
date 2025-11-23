@@ -34,3 +34,57 @@ class Solution {
     return result;
 }
 }
+
+//leetcode problem 20
+// Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+class Solution {
+    public boolean isValid(String s) {
+//         int a = s.length();
+//         char[] arr = s.toCharArray();
+
+//         if (a == 0) return false;
+//         if (a % 2 != 0) return false;
+
+//         // Use a "stack" pointer
+//         char[] stack = new char[a];
+//         int top = -1;
+
+//         for (int i = 0; i < a; i++) {
+//             char c = arr[i];
+
+//             // push expected closing brackets
+//             if (c == '(') stack[++top] = ')';
+//             else if (c == '{') stack[++top] = '}';
+//             else if (c == '[') stack[++top] = ']';
+//             else {
+//                 // check closing bracket
+//                 if (top == -1 || stack[top] != c) return false;
+//                 top--; // pop
+//             }
+//         }
+
+//         return top == -1;
+//     }
+// }
+
+
+    Stack<Character> stack = new Stack<>();
+
+    for (char c : s.toCharArray()) {
+
+      if (c == '(')
+        stack.push(')');
+      else if (c == '{')
+        stack.push('}');
+      else if (c == '[')
+        stack.push(']');
+
+      else if (stack.isEmpty() || stack.pop() != c)
+        return false;
+    }
+    return stack.isEmpty();
+
+  }
+
+}
