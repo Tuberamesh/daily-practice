@@ -1,3 +1,6 @@
+//https://leetcode.com/problems/next-greater-element-i/description/
+// Given two arrays nums1 and nums2 where nums1’s elements are a subset of nums2. Find all the next greater numbers for nums1's elements in the corresponding places of nums2.
+//leetcode problem 493
 class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
          
