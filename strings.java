@@ -60,33 +60,36 @@ class Solution {
     }
 }
 
+//leetcode problem 49 from downnn!
 
-// import java.util.*;
-// class Solution {
-//     public List<List<String>> groupAnagrams(String[] strs) {
+import java.util.*;
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
         
 
-//     if (strs == null || strs.length == 0)
-//       return new ArrayList<>();
+    if (strs == null || strs.length == 0)
+      return new ArrayList<>();
 
-//     Map<String, List<String>> stringAnagramsMap = new HashMap<>();
-//     for (String s : strs) {
-//       char[] arr = s.toCharArray();
-//       Arrays.sort(arr);
-//       String key = String.valueOf(arr);
+    Map<String, List<String>> stringAnagramsMap = new HashMap<>();
+    for (String s : strs) {
+      char[] arr = s.toCharArray();
+      Arrays.sort(arr);
+      String key = String.valueOf(arr);
 
-//       if (!stringAnagramsMap.containsKey(key))
-//         stringAnagramsMap.put(key, new ArrayList<>());
+      if (!stringAnagramsMap.containsKey(key))
+        stringAnagramsMap.put(key, new ArrayList<>());
 
-//       stringAnagramsMap.get(key).add(s);
-//     }
+      stringAnagramsMap.get(key).add(s);
+    }
 
-//     List<List<String>> resultList = new ArrayList<>();
-//     for (Map.Entry<String, List<String>> stringAnagrams : stringAnagramsMap.entrySet()) {
-//       resultList.add(stringAnagrams.getValue());
-//     }
-//     return resultList;
-//   }
+    List<List<String>> resultList = new ArrayList<>();
+    for (Map.Entry<String, List<String>> stringAnagrams : stringAnagramsMap.entrySet()) {
+      resultList.add(stringAnagrams.getValue());
+    }
+    return resultList;
+  }
+
+// 2nd approach using frequency count
 
 //   public List<List<String>> groupAnagramsCategorizeByFrequency(String[] strs) {
 
@@ -136,3 +139,4 @@ class Solution {
 //     return frequencyString.toString();
 //   }
 // }
+
