@@ -141,3 +141,88 @@ class Solution {
         return root;
     }
 }
+
+
+//leetcode 637 average of levels in binary tree
+
+// /**
+//  * Definition for a binary tree node.
+//  * public class TreeNode {
+//  *     int val;
+//  *     TreeNode left;
+//  *     TreeNode right;
+//  *     TreeNode() {}
+//  *     TreeNode(int val) { this.val = val; }
+//  *     TreeNode(int val, TreeNode left, TreeNode right) {
+//  *         this.val = val;
+//  *         this.left = left;
+//  *         this.right = right;
+//  *     }
+//  * }
+//  */
+
+
+
+
+
+// class Solution {
+//   public List<Double> averageOfLevels(TreeNode root) {
+
+//     Queue<TreeNode> levelQueue = new LinkedList<>();
+//     levelQueue.add(root);
+//     levelQueue.add(null);
+
+//     List<Double> avgList = new ArrayList<>();
+
+//     while (levelQueue.peek() != null) {
+
+//       double sum = 0;
+//       int nodes = 0;
+
+//       while (levelQueue.peek() != null) {
+
+//         TreeNode node = levelQueue.poll();
+//         sum += node.val;
+//         nodes++;
+
+//         if (node.left != null) levelQueue.add(node.left);
+//         if (node.right != null) levelQueue.add(node.right);
+//       }
+
+//       levelQueue.add(levelQueue.poll());
+//       avgList.add(sum / nodes);
+//     }
+
+//     return avgList;
+//   }
+
+// }
+
+
+import java.util.*;
+
+class Solution {
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> avgList = new ArrayList<>();
+        if (root == null) return avgList;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            double sum = 0;
+
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                sum += node.val;
+
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
+            avgList.add(sum / size);
+        }
+
+        return avgList;
+    }
+}
