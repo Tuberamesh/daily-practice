@@ -16,7 +16,6 @@ header{
   text-align:center;
   padding:22px;
 }
-header h1{margin:0}
 header p{color:#9ca3af}
 
 .search{
@@ -105,8 +104,8 @@ footer{
 <body>
 
 <header>
-  <h1>🔥 Essential Products I Use & Recommend</h1>
-  <p>Student • Coding • Editing • Daily Life</p>
+  <h1>🔥 Essential Products I Personally Use</h1>
+  <p>Students • Coding • Editing • Daily Life</p>
 </header>
 
 <div class="search">
@@ -116,9 +115,10 @@ footer{
 <div class="filters">
   <button class="active" onclick="setCat('all')">All</button>
   <button onclick="setCat('normal')">Normal Use</button>
-  <button onclick="setCat('coding')">Code/Edit/Game</button>
+  <button onclick="setCat('mix')">Code/Edit/Game</button>
   <button onclick="setCat('high')">High Performance</button>
   <button onclick="setCat('gadgets')">Gadgets</button>
+  <button onclick="setCat('daily')">Daily Use</button>
   <button onclick="setCat('books')">Books</button>
 </div>
 
@@ -132,31 +132,55 @@ footer{
 let cat="all";
 
 const items=[
-/* NORMAL */
-{name:"Acer U Series Laptop",c:"normal",img:"https://via.placeholder.com/400x300?text=Acer+U+Series",link:"https://amzn.to/4g7g2DO"},
-{name:"Lenovo U Series Laptop",c:"normal",img:"https://via.placeholder.com/400x300?text=Lenovo+U+Series",link:"https://amzn.to/41FfQ95"},
-{name:"Dell U Series Laptop",c:"normal",img:"https://via.placeholder.com/400x300?text=Dell+U+Series",link:"https://amzn.to/41JiwSZ"},
-{name:"Dell 13th Gen Laptop",c:"normal",img:"https://via.placeholder.com/400x300?text=Dell+13th+Gen",link:"https://amzn.to/4mX0YeS"},
 
-/* CODING */
-{name:"HP 15 Laptop",c:"coding",img:"https://via.placeholder.com/400x300?text=HP+15",link:"https://amzn.to/481qZor"},
-{name:"Asus TUF 16X RTX 2050",c:"coding",img:"https://via.placeholder.com/400x300?text=Asus+RTX+2050",link:"https://amzn.to/4nbCgqw"},
-{name:"Asus TUF 16X RTX 3050",c:"coding",img:"https://via.placeholder.com/400x300?text=Asus+RTX+3050",link:"https://amzn.to/4gc15AD"},
-{name:"MacBook M2",c:"coding",img:"https://via.placeholder.com/400x300?text=MacBook+M2",link:"https://amzn.to/3JRVbbG"},
+/* GROUP 1 – NORMAL */
+{name:"Acer U Series Laptop",c:"normal",img:"https://m.media-amazon.com/images/I/61k0gpxQwCL._SL1080_.jpg",link:"https://amzn.to/4g7g2DO"},
+{name:"Lenovo U Series Laptop",c:"normal",img:"https://m.media-amazon.com/images/I/615itEeM5ZL._SL1080_.jpg",link:"https://amzn.to/41FfQ95"},
+{name:"Dell U Series Laptop",c:"normal",img:"https://m.media-amazon.com/images/I/61-Y-eWXqtL._SL1080_.jpg",link:"https://amzn.to/41JiwSZ"},
+{name:"Dell 13th Gen Laptop",c:"normal",img:"https://m.media-amazon.com/images/I/61-Y-eWXqtL._SL1080_.jpg",link:"https://amzn.to/4mX0YeS"},
 
-/* HIGH */
-{name:"Lenovo RTX 4050 Laptop",c:"high",img:"https://via.placeholder.com/400x300?text=RTX+4050",link:"https://amzn.to/4m9Rz2d"},
-{name:"HP Victus RTX 4050",c:"high",img:"https://via.placeholder.com/400x300?text=HP+Victus",link:"https://amzn.to/4gfiAzW"},
+/* GROUP 2 – MIX */
+{name:"HP 15 Laptop",c:"mix",img:"https://m.media-amazon.com/images/I/41SFtItBkZL._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/481qZor"},
+{name:"Asus 16X RTX 2050",c:"mix",img:"https://m.media-amazon.com/images/I/71gtGGVS3NL._SL1500_.jpg",link:"https://amzn.to/4nbCgqw"},
+{name:"Asus 16X RTX 3050",c:"mix",img:"https://m.media-amazon.com/images/I/719atypOUGL._SX679_.jpg",link:"https://amzn.to/4gc15AD"},
+{name:"MacBook M2",c:"mix",img:"https://m.media-amazon.com/images/I/41UnYGu7AGL._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/3JRVbbG"},
+{name:"HP Victus",c:"mix",img:"https://m.media-amazon.com/images/I/418tr1AXJKL._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/4pgRDAa"},
+{name:"Asus i7 Laptop",c:"mix",img:"https://m.media-amazon.com/images/I/71pV9xSCREL._SX679_.jpg",link:"https://amzn.to/46oMv5j"},
+
+/* GROUP 3 – HIGH */
+{name:"Acer RTX 3050 4GB",c:"high",img:"https://m.media-amazon.com/images/I/51ViDFxb0ZL._SL1000_.jpg",link:"https://amzn.to/4nilsOQ"},
+{name:"Acer RTX 3050 6GB",c:"high",img:"https://m.media-amazon.com/images/I/51ViDFxb0ZL._SL1000_.jpg",link:"https://amzn.to/41Joh3c"},
+{name:"Lenovo RTX 3050 4GB",c:"high",img:"https://m.media-amazon.com/images/I/61aXoUYHNcL._SX679_.jpg",link:"https://amzn.to/46pIk9p"},
+{name:"HP RTX 3050 6GB",c:"high",img:"https://m.media-amazon.com/images/I/714AENEeuZL._SX679_.jpg",link:"https://amzn.to/4pbWbra"},
+{name:"Lenovo RTX 4050 6GB",c:"high",img:"https://m.media-amazon.com/images/I/712JQRn52rL._SL1500_.jpg",link:"https://amzn.to/4m9Rz2d"},
+{name:"HP Victus RTX 4050",c:"high",img:"https://m.media-amazon.com/images/I/41XSJr+ke1L._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/4gfiAzW"},
 
 /* GADGETS */
-{name:"SanDisk Dual USB 128GB",c:"gadgets",img:"https://via.placeholder.com/400x300?text=SanDisk+128GB",link:"https://amzn.to/4mQlEVA"},
-{name:"Boat Powerbank 20k",c:"gadgets",img:"https://via.placeholder.com/400x300?text=Boat+Powerbank",link:"https://amzn.to/3RoOVZy"},
-{name:"Noise Earbuds",c:"gadgets",img:"https://via.placeholder.com/400x300?text=Noise+Earbuds",link:"https://amzn.to/3RZNFfu"},
+{name:"SanDisk 128GB Dual USB",c:"gadgets",img:"https://m.media-amazon.com/images/I/81gqM6ouEcL._SL1500_.jpg",link:"https://amzn.to/4mQlEVA"},
+{name:"SanDisk 64GB Dual USB",c:"gadgets",img:"https://m.media-amazon.com/images/I/81gqM6ouEcL._SL1500_.jpg",link:"https://amzn.to/41Co8OX"},
+
+/* DAILY USE */
+{name:"My Mobile Phone",c:"daily",img:"https://m.media-amazon.com/images/I/21dDJ2DknOL.jpg",link:"https://amzn.to/4grQvDW"},
+{name:"My Laptop",c:"daily",img:"https://m.media-amazon.com/images/I/71jG+e7roXL._SL1500_.jpg",link:"https://amzn.to/42Howgc"},
+{name:"Laptop Bag",c:"daily",img:"https://m.media-amazon.com/images/I/617UzMOKS1L._SX679_.jpg",link:"https://amzn.to/4jHTR8N"},
+{name:"Keyboard Cover",c:"daily",img:"https://m.media-amazon.com/images/I/61ClG0yQOxL._SL1000_.jpg",link:"https://amzn.to/3Q4gTZT"},
+{name:"Earbuds (Daily Use)",c:"daily",img:"https://m.media-amazon.com/images/I/614gbl-O98L._SL1500_.jpg",link:"https://amzn.to/4grNyn4"},
+
+/* STUDENT ESSENTIALS */
+{name:"Boat Powerbank 20000mAh",c:"gadgets",img:"https://m.media-amazon.com/images/I/71vL-pb3o1L._SL1500_.jpg",link:"https://amzn.to/3RoOVZy"},
+{name:"Mi Powerbank 20000mAh",c:"gadgets",img:"https://m.media-amazon.com/images/I/21bPDrw3NPL._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/42SA0x2"},
+{name:"Noise Earbuds",c:"gadgets",img:"https://m.media-amazon.com/images/I/61MEqB9MfML._SX679_.jpg",link:"https://amzn.to/3RZNFfu"},
+{name:"Boat Earbuds",c:"gadgets",img:"https://m.media-amazon.com/images/I/61+62pfcajL._SL1500_.jpg",link:"https://amzn.to/4ioYtP8"},
+{name:"Calculator",c:"gadgets",img:"https://m.media-amazon.com/images/I/41mVTwoikiL._SY300_SX300_QL70_ML2_.jpg",link:"https://amzn.to/44ubEuO"},
+{name:"Water Bottle",c:"gadgets",img:"https://m.media-amazon.com/images/I/71wbGQEebsL._SL1500_.jpg",link:"https://amzn.to/4jjvEoJ"},
+{name:"Hair Dryer",c:"gadgets",img:"https://m.media-amazon.com/images/I/61QHV71pu4L._SL1500_.jpg",link:"https://amzn.to/481rzm7"},
+{name:"Havells Iron Box",c:"gadgets",img:"https://m.media-amazon.com/images/I/61jRFfaYz5L._SL1500_.jpg",link:"https://amzn.to/4m9k8gj"},
 
 /* BOOKS */
-{name:"Psychology of Money",c:"books",img:"https://via.placeholder.com/400x300?text=Psychology+of+Money",link:"https://amzn.to/42wxnzH"},
-{name:"Make It Stick",c:"books",img:"https://via.placeholder.com/400x300?text=Make+It+Stick",link:"https://amzn.to/42LbVHA"},
-{name:"Magic of Thinking Big",c:"books",img:"https://via.placeholder.com/400x300?text=Thinking+Big",link:"https://amzn.to/4igsMaF"}
+{name:"Psychology of Money",c:"books",img:"https://m.media-amazon.com/images/I/71XEsXS5RlL._SY522_.jpg",link:"https://amzn.to/42wxnzH"},
+{name:"Make It Stick",c:"books",img:"https://m.media-amazon.com/images/I/81v0NxNkKSL._SL1500_.jpg",link:"https://amzn.to/42LbVHA"},
+{name:"Magic of Thinking Big",c:"books",img:"https://m.media-amazon.com/images/I/81UZJqFG7VL._SY522_.jpg",link:"https://amzn.to/45xxwVO"}
+
 ];
 
 function setCat(c){
