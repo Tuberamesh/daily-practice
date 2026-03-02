@@ -366,3 +366,54 @@ class Solution {
     rightview(curr.left,result,currDepth+1);
 }
 }
+
+
+class Solution {
+    // Helper class to store node with its coordinates
+    class Point {
+        int row, col, val;
+        Point(int row, int col, int val) {
+            this.row = row;
+            this.col = col;
+            this.val = val;
+        }
+    }
+
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        // TreeMap sorts by Column, then by Row, then PriorityQueue sorts by Value
+        TreeMap<Integer, TreeMap<Integer, PriorityQueue<Integer>>> map = new TreeMap<>();
+        Queue<Object[]> q = new LinkedList<>(); // Stores [TreeNode, row, col]
+        
+        q.offer(new Object[]{root, 0, 0});
+
+        while (!q.isEmpty()) {
+            Object[] current = q.poll();
+            TreeNode node = (TreeNode) current[0];
+            int row = (int) current[1];
+            int col = (int) current[2];
+
+            // Initialize nested maps if they don't exist
+            map.putIfAbsent(col, new TreeMap<>());
+            map.get(col).putIfAbsent(row, new PriorityQueue<>());
+            map.get(col).get(row).offer(node.val);
+
+            // Move left: row increases, col decreases
+            if (node.left != null) q.offer(new Object[]{node.left, row + 1, col - 1});
+            // Move right: row increases, col increases
+            if (node.right != null) q.offer(new Object[]{node.right, row + 1, col + 1});
+        }
+
+        List<List<Integer>> result = new ArrayList<>();
+        for (int col : map.keySet()) {
+            List<Integer> columnList = new ArrayList<>();
+            for (int row : map.get(col).keySet()) {
+                PriorityQueue<Integer> pq = map.get(col).get(row);
+                while (!pq.isEmpty()) {
+                    columnList.add(pq.poll()); // Extract sorted values for the same coordinate
+                }
+            }
+            result.add(columnList);
+        }
+        return result;
+    }
+}
