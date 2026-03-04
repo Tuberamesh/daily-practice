@@ -58,3 +58,30 @@ class Solution1{
    // return longest;
     }
 }
+
+// question 26 Remove Duplicates from Sorted Array
+//my solution
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length==0){
+             return 0;
+
+        }
+        Arrays.sort(nums);
+        int k=1;
+        int result[]=new int[nums.length];
+        result[0]=nums[0];
+   
+        for(int i=1;i<nums.length;i++){
+                if(nums[i-1]!=nums[i]){
+                    result[k]=nums[i];
+                    k++;
+                }
+        }
+                
+            for(int i=0;i<k;i++){
+                nums[i]=result[i];
+    }
+    return k;
+    }
+}
