@@ -110,7 +110,8 @@ class Solution {
 }
 
 
-
+// question 242 Valid Anagram
+//first method of own
 class Solution {
     public boolean isAnagram(String s, String t) {
 
