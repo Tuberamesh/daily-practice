@@ -108,3 +108,33 @@ class Solution {
         return k;
     }
 }
+
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        if(s.length()!=t.length()){
+            return false;
+        }
+
+        Map<Character,Integer> s1=new HashMap<>();
+        Map<Character,Integer> s2=new HashMap<>();
+
+        for(int i=0;i<s.length();i++){
+            char c=s.charAt(i);
+            s1.put(c,s1.getOrDefault(c,0)+1);
+        }
+
+        // add we use in hset for listn and aray for set. but here we puting in a slots.. 
+
+        for(int i=0;i<t.length();i++){
+            char c=t.charAt(i);
+            s2.put(c,s2.getOrDefault(c,0)+1);
+        }
+ 
+        return s1.equals(s2);
+ 
+        
+    }
+}
