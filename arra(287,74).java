@@ -83,3 +83,39 @@ class Solution {
   }
 }
   
+
+// question 347 top k frequent elements..
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        
+        Map<Integer,Integer> fm =new HashMap<>();
+        List<Integer>[] bucket=new List[nums.length+1];
+
+        for(int n:nums){
+            fm.put(n,fm.getOrDefault(n,0)+1);
+        }
+
+        for(int key:fm.keySet()){
+            int frequnecy=fm.get(key);
+            if(bucket[frequnecy] ==null){
+                bucket[frequnecy]=new ArrayList<>();
+            }
+            bucket[frequnecy].add(key);
+
+        }
+        int[] res=new int[k];
+        int counter=0;
+
+        for(int i=bucket.length-1;i>=0 && counter<k;i--){
+            if(bucket[i]!=null){
+                for(int n:bucket[i]){
+                    if (counter <k);
+                    res[counter++] =n;
+                }
+                
+            }
+        }
+        return res;
+        
+    }
+}
