@@ -174,3 +174,34 @@ public class Solution {
         return true;
     }
 }
+
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        if (nums.length == 0) return 0;
+
+        Arrays.sort(nums);
+
+        int longest = 1;
+        int currentStreak = 1;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            // Case 1: Consecutive (Gap of 1)
+            if (nums[i+1] - nums[i] == 1) {
+                currentStreak++;
+            } 
+            // Case 2: Duplicate (Gap of 0)
+            else if (nums[i+1] - nums[i] == 0) {
+                continue; // Do nothing, just move to the next 'i'
+            } 
+            // Case 3: A real gap found!
+            else {
+                longest = Math.max(longest, currentStreak);
+                currentStreak = 1; // Reset for the next sequence
+            }
+        }
+
+        // Final check to see if the last sequence was the longest
+        return Math.max(longest, currentStreak);
+    }
+}
