@@ -176,6 +176,7 @@ public class Solution {
 }
 
 
+// question 128 longest consecutive sequence..
 class Solution {
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
@@ -204,4 +205,4 @@ class Solution {
         // Final check to see if the last sequence was the longest
         return Math.max(longest, currentStreak);
     }
-}
+}gi
