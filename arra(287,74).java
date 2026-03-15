@@ -574,7 +574,7 @@ public class Solution {
         return maxArea;
     }
 }
-
+// time complexity is O(n^2) and space complexity is O(1)
 // public class Solution {
 //     public int largestRectangleArea(int[] heights) {
 //         int n = heights.length;
