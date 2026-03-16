@@ -649,3 +649,30 @@ class Solution {
       return max_length;
     }
     } 
+// time complexity is O(n^2) and space complexity is O(n)
+    class Solution {
+    // LeetCode REQUIRES this to be 'int'
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0) return 0;
+
+        Set<Character> charset = new HashSet<>();
+        int left = 0;
+        String longest = "";
+
+        for (int right = 0; right < s.length(); right++) {
+            while (charset.contains(s.charAt(right))) {
+                charset.remove(s.charAt(left));
+                left++;
+            }
+
+            charset.add(s.charAt(right));
+
+            if ((right - left + 1) > longest.length()) {
+                longest = s.substring(left, right + 1);
+            }
+        }
+        
+        // Return the length of the string you found
+        return longest.length();
+    }
+}
