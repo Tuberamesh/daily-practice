@@ -624,3 +624,28 @@ class Solution {
         
     }
 }
+
+
+// question 3 longest substring without repeating characters..
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+      Set <Character> charset=new HashSet<>();
+
+      int left=0;
+      int right;
+      int max_length=0;
+
+      for(right=0;right<s.length();right++){
+
+         while(charset.contains(s.charAt(right))){
+            charset.remove(s.charAt(left));
+            left++;
+         }
+
+        charset.add(s.charAt(right));
+        max_length=Math.max(max_length, right-left+1);
+    
+      }
+      return max_length;
+    }
+    } 
