@@ -600,3 +600,27 @@ public class Solution {
 //         return maxArea;
 //     }
 // }
+
+//question 121 best time to buy and sell stock..
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n=prices.length;
+        int buy_price=prices[0];
+        int profit=0;
+
+        for(int i=1;i<=n-1;i++){
+            if(buy_price>prices[i]){
+                buy_price=prices[i];
+            }
+                
+                else{
+                    int current_pofit=prices[i]-buy_price;
+                    profit=Math.max(current_pofit,profit);
+                }
+                
+        }
+        return profit;
+        
+    }
+}
