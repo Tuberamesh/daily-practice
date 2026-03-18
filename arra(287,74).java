@@ -709,3 +709,23 @@ public class Solution {
     return res;
 }
 }
+
+// question 206 reverse a linked list..
+class Solution {
+    public ListNode reverseList(ListNode head) {
+
+        ListNode temp=head;
+        ListNode prev=null;
+
+        while(temp!=null){
+            ListNode front=temp.next;
+            temp.next=prev;
+            prev=temp;
+            temp=front;
+
+        }
+
+        return prev;
+        
+    }
+}
