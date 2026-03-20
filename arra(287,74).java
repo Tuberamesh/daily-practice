@@ -907,3 +907,19 @@ class Solution {
         
     }
 }
+
+
+// question 287 find the duplicate number..
+class Solution {
+    public int findDuplicate(int[] nums) {
+        Set<Integer> numSet = new HashSet<>();
+
+    for (int num : nums) {
+      if (numSet.contains(num))
+        return num;
+      numSet.add(num);
+    }
+
+    return -1;
+  }
+    }
