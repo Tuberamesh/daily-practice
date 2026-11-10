@@ -165,3 +165,34 @@ class Solution:
                 result[i + j] += total // 10
 
         return ''.join(map(str, result)).lstrip('0')
+
+
+
+
+
+
+
+
+// Given a non-negative integer x, compute and return the square root of x.
+// Since the return type is an integer, the decimal digits are truncated, and only the integer part of the result is returned.
+//time complexity: O(log n) where n is the input number x.
+class Solution:
+    def mySqrt(self, x: int) -> int:
+
+        left = 0
+        right = x
+
+        while left <= right:
+
+            mid = (left + right) // 2
+
+            if mid * mid == x:
+                return mid
+
+            elif mid * mid < x:
+                left = mid + 1
+
+            else:
+                right = mid - 1
+
+        return right
