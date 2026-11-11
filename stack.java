@@ -17,3 +17,17 @@ class Solution(object):
 
         return ans
         
+#program no 155
+#time complexity O(1)
+#space complexity O(n)
+def push(self, val: int) -> None:
+        self.stack.append(val)
+
+        if not self.min_stack or val <= self.min_stack[-1]:
+            self.min_stack.append(val)
+
+    def pop(self) -> None:
+        val = self.stack.pop()
+
+        if val == self.min_stack[-1]:
+            self.min_stack.pop()
