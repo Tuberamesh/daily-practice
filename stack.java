@@ -31,3 +31,31 @@ def push(self, val: int) -> None:
 
         if val == self.min_stack[-1]:
             self.min_stack.pop()
+
+
+#program no 20
+#time complexity O(n)
+#space complexity O(n)
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        stack = []
+
+        mapping = {
+            ')': '(',
+            '}': '{',
+            ']': '['
+        }
+
+        for char in s:
+
+            if char in mapping:
+                if stack and stack[-1] == mapping[char]:
+                    stack.pop()
+                else:
+                    return False
+
+            else:
+                stack.append(char)
+
+        return len(stack) == 0
